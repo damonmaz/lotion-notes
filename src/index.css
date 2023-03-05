@@ -1,16 +1,190 @@
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-li,
-p {
+/* Note for height (Keep height so it equals 100vh. Then it wont scroll 
+
+  #header:  15vh
+  #header bottom border: 0.25vh
+  #sidebar: 84.5 vh
+  #sidebar bottom border: 0.25vh
+
+  = 100vh 
+  = 100%
+*/
+
+body{
+  margin: 0;
+  padding: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p.p {
   margin: 0;
   padding: 0;
 }
-a {
-  color: inherit;
-  text-decoration: none;
+
+div#main {
+  display: flex;
+  flex-direction: row;
+}
+/* App.js */
+#header {
+  display: flex;
+  flex-direction: row;
+
+  border-style: solid;
+  border-width: 0.25vh;
+  border-bottom-color: darkgrey;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+
+  height: 15vh;
+}
+
+#enable-sidebar {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  font-size: 5vh;
+  font-weight: bold;
+
+  width: 7%;
+
+  background-color: red;
+}
+
+.button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.button:hover {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  background-color: #423A51;
+
+  height: 100%;
+  width: 100%;
+}
+
+#keep-lotion-center {
+  background-color: red;
+
+  width: 7%;
+}
+
+#title-lotion {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+
+  background-color: green;
+}
+
+#title-lotion-title {
+  margin: 1%;
+  margin-bottom: 0.5%;
+}
+
+#title-lotion-subtext {
+  margin-top: 0px;
+  margin-bottom: 0.5%;
+  color: gray;
+  font-weight: bold;
+}
+
+
+/* Sidebar.js */
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  
+  border-style: solid;
+  border-width: 0.25vh;
+  border-top: 0px;
+  border-left: 0px;
+  border-bottom: 0px;
+  border-color: darkgray;
+
+  margin-top: 0%;
+  width: 20%;
+  height: 84.75vh;
+
+  background-color: gray;
+}
+
+#add-notes {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  
+  border-style: solid;
+  border-bottom-width: 0.25vh;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-color: inherit;
+
+  font-weight: bold;
+  font-size: 4vh;
+
+  background-color: aqua;
+
+}
+
+#add-notes-left {
+  flex: 9;
+
+  margin-top: 1%;
+  margin-bottom: 1%;
+
+
+  background-color: blue;
+}
+
+#add-notes-right { /* Add notes button */
+  flex: 3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 1%;
+  margin-bottom: 1%;
+
+  background-color: azure;
+
+  text-align: center;
+  height: 100%;
+}
+
+#current-notes {
+  flex: 9;
+
+  background-color: brown;
+}
+
+/* Notes.js */
+#notes {
+  margin: 0px;
+  width: 100%;
+  height: 84.75vh;
+
+  background-color: darkmagenta;
 }

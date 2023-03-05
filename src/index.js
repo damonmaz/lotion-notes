@@ -2,12 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Sidebar from './Sidebar';
+import Notes from './Notes';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    <div id='main'>
+      <Sidebar />
+      <Notes />
+    </div>
+
   </React.StrictMode>
 );
 
