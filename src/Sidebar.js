@@ -1,16 +1,4 @@
-function Sidebar({ notes, addNote }) {
-
-
-
-  /*
-  const arg = notes.map((note) => (
-    {const : new Date(note.lastModified).toLocaleDateString("en-NZ"),
-    
-  }
-  ))
-  */
-
-
+function Sidebar({ notes, addNote, selectedNote, setSelectedNote }) {
 
   return (
     <div id="sidebar-to-hide"> {/* Might have to replace this in the future, keeping for now. Hides the sidebar using same method as assignment 5 */}
@@ -27,11 +15,12 @@ function Sidebar({ notes, addNote }) {
         <div id="current-notes"> {/* This is where new notes will be created, deleted, and selected */}
           {notes.map((note) => ( 
           
-            <div className="sidebar-note">
+            <div className={`sidebar-note ${note.id === selectedNote && "selected"}`} onClick={ () => setSelectedNote(note.id)}> {/* Div for actual note */}
               <div className="sidebar-note-title"><strong>{note.title}</strong></div>
               <div className="sidebar-note-metadata">Last modified {new Date(note.lastModified).toLocaleDateString("en-NZ")}, {new Date(note.lastModified).toLocaleTimeString("en-NZ")}</div> {/* This should until the note is updated */}
               <div className="sidebar-note-contents">{(note.body && note.body.substr(0, 100) + "...") || ("...")}</div>
             </div>
+
           ))}
         </div>
 

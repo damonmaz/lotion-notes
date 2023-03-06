@@ -119,7 +119,7 @@ div#main {
   border-color: darkgray;
 
   margin-top: 0%;
-  width: 25%;
+  min-width: 20vw;
   height: 84.75vh;
 
   /*background-color: gray;*/
@@ -153,7 +153,7 @@ div#main {
   font-weight: bold;
   font-size: 4vh;
 
-  height: 45px;
+  height: 12vh;
 
   /*background-color: aqua;*/
 
@@ -207,7 +207,24 @@ div#main {
   border-bottom-width: 0.25vh;
   border-color: darkgray;
   
+  cursor: pointer;
+  color: white;
+
   background-color: #423A51;
+}
+
+.sidebar-note.selected {
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 0.25vh;
+  border-color: darkgray;
+
+  color: white;
+
+  background-color: #423A51;
+
+  min-height: 13vh;
+  max-height: 14vh;
 }
 
 .sidebar-note-title {
@@ -226,19 +243,13 @@ div#main {
 #current-notes::-webkit-scrollbar {
   width: 1vh;
 }
-
-/* Track */
 #current-notes::-webkit-scrollbar-track {
   border-radius: 10px;
 }
- 
-
 #current-notes::-webkit-scrollbar-thumb {
   background: darkgray; 
   border-radius: 10px;
 }
-
-
 #current-notes::-webkit-scrollbar-thumb:hover {
   background: gray; 
 }
@@ -246,8 +257,111 @@ div#main {
 /* Notes.js */
 #notes {
   margin: 0px;
+  min-width: 79.85vw; /* Idk why it has to be this width but this keeps the page filled */
   width: 100%;
   height: 84.75vh;
+  
+  overflow-y: auto;
 
-  background-color: darkmagenta;
+  /*background-color: darkmagenta;*/
+}
+
+#notes-overview {
+  display: flex;
+  flex-direction: row;
+
+  min-height: 12vh;
+
+  background-color: aqua;
+}
+
+#notes-overview-seperation {
+  width: 55%;
+
+  background-color: red;
+}
+
+#notes-title-and-date {
+  display: flex;
+  flex-direction: column;
+
+  width: 50%;
+
+  background-color: blueviolet;
+}
+
+#notes-title {
+  border: 0px;
+  outline: none;
+  flex: 3;
+
+  font: inherit;
+  font-size: larger;
+
+  background-color: blanchedalmond;
+}
+
+#notes-date {
+  flex: 2;
+}
+
+#notes-save-and-delete {
+  display: flex;
+  justify-content: right;
+  align-items: right ;
+  width: 15%;
+}
+
+.notes-button {
+  background: none;
+	border: none;
+
+  font-weight: bold;
+
+	cursor: pointer;
+
+  height: 100%;
+  width: 50%;
+}
+
+.notes-button:hover {
+  background: none;
+	border: none;
+
+  font-weight: bold;
+
+	cursor: pointer;
+  background-color: #423A51;
+
+  height: 100%;
+  width: 50%;
+}
+
+
+#notes-editor {
+  
+  max-height: 72.75vh;
+
+}
+
+.quill  .ql-container{
+  min-height: 64vh;
+  min-width: 79.85vw;
+  border-bottom: 0px !important; 
+  
+}
+
+/* Scrollbar settings */
+#notes::-webkit-scrollbar {
+  width: 1vh;
+}
+#notes::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+#notes::-webkit-scrollbar-thumb {
+  background: darkgray; 
+  border-radius: 10px;
+}
+#notes::-webkit-scrollbar-thumb:hover {
+  background: gray; 
 }
