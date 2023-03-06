@@ -14,7 +14,7 @@ function Header() {
     return (
     <header id="header">
       <div id="enable-sidebar">
-       <button class="button" onClick={sidebarToggle}>≡</button> 
+       <button className="button" onClick={sidebarToggle}>≡</button> 
       </div>
       <div id="title-lotion">
         <h1 id="title-lotion-title">Lotion</h1>

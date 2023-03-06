@@ -1,22 +1,44 @@
-import PopulateSidebar from "./PopulateSidebar";
+function Sidebar({ notes, addNote }) {
 
-function Sidebar() {
+
+
+  /*
+  const arg = notes.map((note) => (
+    {const : new Date(note.lastModified).toLocaleDateString("en-NZ"),
+    
+  }
+  ))
+  */
+
+
+
   return (
-    <div id="sidebar-to-hide">
+    <div id="sidebar-to-hide"> {/* Might have to replace this in the future, keeping for now. Hides the sidebar using same method as assignment 5 */}
       <div id="sidebar">
         <div id="add-notes">
           <div id="add-notes-left">
-            <p class="p">Notes</p>
+            <p className="p">Notes</p>
           </div>
           <div id="add-notes-right">
-            <button class="button" onClick={PopulateSidebar}>+</button>
+            <button className="button" onClick={addNote}>+</button>
           </div>
         </div>
+
         <div id="current-notes"> {/* This is where new notes will be created, deleted, and selected */}
+          {notes.map((note) => ( 
+          
+            <div className="sidebar-note">
+              <div className="sidebar-note-title"><strong>{note.title}</strong></div>
+              <div className="sidebar-note-metadata">Last modified {new Date(note.lastModified).toLocaleDateString("en-NZ")}, {new Date(note.lastModified).toLocaleTimeString("en-NZ")}</div> {/* This should until the note is updated */}
+              <div className="sidebar-note-contents">{(note.body && note.body.substr(0, 100) + "...") || ("...")}</div>
+            </div>
+          ))}
         </div>
+
+
       </div>
     </div>
   );
 };
 
-export default Sidebar;
+export default Sidebar; 

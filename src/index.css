@@ -9,6 +9,7 @@
   = 100%
 */
 
+/* All */
 body{
   margin: 0;
   padding: 0;
@@ -25,6 +26,7 @@ div#main {
   display: flex;
   flex-direction: row;
 }
+
 /* App.js */
 #header {
   display: flex;
@@ -109,8 +111,6 @@ div#main {
 
 /* Sidebar.js */
 #sidebar-to-hide {
-
-  
   border-style: solid;
   border-width: 0.25vh;
   border-top: 0px;
@@ -119,7 +119,7 @@ div#main {
   border-color: darkgray;
 
   margin-top: 0%;
-  width: 20%;
+  width: 25%;
   height: 84.75vh;
 
   /*background-color: gray;*/
@@ -149,9 +149,11 @@ div#main {
   border-left: 0px;
   border-right: 0px;
   border-color: inherit;
-
+  
   font-weight: bold;
   font-size: 4vh;
+
+  height: 45px;
 
   /*background-color: aqua;*/
 
@@ -185,8 +187,60 @@ div#main {
 
 #current-notes {
   flex: 9;
-
+  overflow-y: auto;
   /*background-color: brown;*/
+}
+
+.sidebar-note {
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 0.25vh;
+  border-color: darkgray;
+
+  min-height: 13vh;
+  max-height: 14vh;
+}
+
+.sidebar-note:hover {
+  border-style: solid;
+  border-width: 0px;
+  border-bottom-width: 0.25vh;
+  border-color: darkgray;
+  
+  background-color: #423A51;
+}
+
+.sidebar-note-title {
+
+}
+
+.sidebar-note-contents {
+  
+}
+
+.sidebar-note-metadata {
+  font-size: x-small;
+}
+
+/* Scrollbar settings */
+#current-notes::-webkit-scrollbar {
+  width: 1vh;
+}
+
+/* Track */
+#current-notes::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+
+#current-notes::-webkit-scrollbar-thumb {
+  background: darkgray; 
+  border-radius: 10px;
+}
+
+
+#current-notes::-webkit-scrollbar-thumb:hover {
+  background: gray; 
 }
 
 /* Notes.js */
