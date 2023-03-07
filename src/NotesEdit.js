@@ -1,7 +1,9 @@
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { Link, useParams, useOutletContext, useNavigate } from "react-router-dom";
 
 function NotesEdit({ selectedNote }) {
+    const navigate = useNavigate();
 
     return (
         
@@ -16,7 +18,9 @@ function NotesEdit({ selectedNote }) {
                 </div>
                 <div id='notes-overview-seperation' ></div>
                 <div id='notes-save-and-delete'>
-                    <button className='notes-button'>Save</button>
+                <Link to={`edit`}>
+                    <button className='notes-button' onClick={() => navigate(-1)}>Save</button> {/* As of right now this does go back, but also deleted the notes in the sidebar */}
+                </Link>
                     <button className='notes-button'>Delete</button>
                 </div> 
             </div>

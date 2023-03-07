@@ -1,7 +1,17 @@
-import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { Link, useParams, useOutletContext } from "react-router-dom";
+
 
 function NotesView({ selectedNote }) {
+
+    const notes = useOutletContext();
+    const { id } = useParams(); // { id } contains note.id twice.
+
+    for (var i = 0; i < id.length; i++) {
+        console.log(i)
+    }
+    console.log(id)
+    
 
     return (
         
@@ -15,7 +25,10 @@ function NotesView({ selectedNote }) {
                 </div>
                 <div id='notes-overview-seperation' ></div>
                 <div id='notes-save-and-delete'>
-                    <button className='notes-button'>Edit</button>
+
+                    <Link to={`edit`}>
+                        <button className='notes-button'>Edit</button>
+                    </Link>
                     <button className='notes-button'>Delete</button>
                 </div> 
             </div>
