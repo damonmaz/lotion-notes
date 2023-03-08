@@ -2,8 +2,17 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link, useParams, useOutletContext, useNavigate } from "react-router-dom";
 
-function NotesEdit({ selectedNote }) {
+function NotesEdit() {
     const navigate = useNavigate();
+    const propsFromLayout = useOutletContext();
+
+    var notes = propsFromLayout.notes; // An array of all of the notes objects. 
+    var selectedNote = propsFromLayout.selectedNote; // The currently selected note. Works perfectly, no changes need
+
+    const getSelectedNote = () => {
+        return notes.find((note) => note.id === selectedNote)
+      } 
+
 
     return (
         
@@ -13,15 +22,13 @@ function NotesEdit({ selectedNote }) {
                 <div id='notes-title-and-date'>
                     {/* Put {note.title}, {note.lastModified} here.
                      Add functions to change value of note.title and note.lastModified */}
-                    <input type='text' id='notes-title'></input>
-                    <div id='notes-date'></div>
+                    <input type='text' id='notes-title' placeholder={getSelectedNote().title}></input>
+                    <input type='datetime-local' id='notes-date' ></input>
                 </div>
                 <div id='notes-overview-seperation' ></div>
                 <div id='notes-save-and-delete'>
-                <Link to={`edit`}>
-                    <button className='notes-button' onClick={() => navigate(-1)}>Save</button> {/* As of right now this does go back, but also deleted the notes in the sidebar */}
-                </Link>
-                    <button className='notes-button'>Delete</button>
+                    <button className='notes-button' onClick={() => navigate(-1) }>Save</button> {/* As of right now this jsut goes back, but also deleted the notes in the sidebar */}
+                    <button className='notes-button' onClick={() => propsFromLayout.deleteNote(selectedNote)}>Delete</button>
                 </div> 
             </div>
             <div id='notes-editor'>

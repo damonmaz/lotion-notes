@@ -27,6 +27,13 @@ p.p {
   padding: 0;
 }
 
+p#p {
+  margin: 0px;
+  margin-top: 1vh;
+  margin-left: 1px;
+  padding: 0px;
+}
+
 div#main {
   display: flex;
   flex-direction: row;
@@ -128,7 +135,7 @@ div#main {
   width: 100%;
   min-height: 72.75vh;
 
-  background-color: orange;
+  /* background-color: orange; */
 }
 
 /* Sidebar.js */
@@ -177,7 +184,7 @@ div#main {
 
   height: 12vh;
 
-  /*background-color: aqua;*/
+  /* background-color: aqua; */
 
 }
 
@@ -188,7 +195,7 @@ div#main {
   margin-bottom: 1%;
 
 
- /* background-color: blue;*/
+/* background-color: blue; */
 }
 
 #add-notes-right { /* Add notes button */
@@ -204,13 +211,13 @@ div#main {
   text-align: center;
   height: 100%;
 
-  /*background-color: azure;*/
+  /* background-color: azure; */
 }
 
 #current-notes {
   flex: 9;
   overflow-y: auto;
-  /*background-color: brown;*/
+  /* background-color: brown; */
 }
 
 .sidebar-note {
@@ -259,10 +266,6 @@ div#main {
   text-decoration: none;
 }
 
-.sidebar-note-contents {
-
-}
-
 .sidebar-note-metadata {
   font-size: x-small;
 }
@@ -291,7 +294,7 @@ div#main {
   
   overflow-y: auto;
 
-  /*background-color: darkmagenta;*/
+  /* background-color: darkmagenta; */
 }
 
 #notes-overview {
@@ -300,22 +303,31 @@ div#main {
 
   min-height: 12vh;
 
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom: 0.25vh;
+  border-style: solid;
+  border-color: darkgray;
+
 
 }
 
 #notes-overview-seperation {
   width: 55%;
 
-  background-color: red;
+   /* background-color: red;  */
 }
 
 #notes-title-and-date {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
-  width: 50%;
+  min-width: 50%;
+  max-width: 75%;
 
-  background-color: blueviolet;
+   /* background-color: blueviolet;  */
 }
 
 #notes-title {
@@ -323,14 +335,16 @@ div#main {
   outline: none;
   flex: 3;
 
+
   font: inherit;
   font-size: larger;
 
-  background-color: blanchedalmond;
+   /* background-color: blanchedalmond;  */
 }
 
 #notes-date {
   flex: 2;
+  margin-left: 2px;
 }
 
 #notes-save-and-delete {
@@ -339,7 +353,7 @@ div#main {
   align-items: right ;
   width: 15%;
 
-  background-color: bisque;
+   /* background-color: bisque;  */
 }
 
 .notes-button {
@@ -375,8 +389,8 @@ div#main {
 }
 
 .quill  .ql-container{
-  min-height: 64vh;
-  min-width: 79.85vw;
+  min-height: 63vh;
+  min-width: 79.75vw;
   border-bottom: 0px !important; 
   
 }

@@ -1,27 +1,36 @@
 import 'react-quill/dist/quill.snow.css';
-import { Link, useParams, useOutletContext } from "react-router-dom";
+import { Link, useParams, useOutletContext, useNavigate } from "react-router-dom";
 
 
-function NotesView({ selectedNote }) {
+function NotesView() {
+    const propsFromLayout = useOutletContext();
 
-    const notes = useOutletContext();
-    const { id } = useParams(); // { id } contains note.id twice.
+    var notes = propsFromLayout.notes; // An array of all of the notes objects. 
+    var selectedNote = propsFromLayout.selectedNote; // The currently selected note. Works perfectly, no changes need
 
-    for (var i = 0; i < id.length; i++) {
-        console.log(i)
-    }
-    console.log(id)
-    
+    const getSelectedNote = () => {
+        return notes.find((note) => note.id === selectedNote)
+    } 
+
+    const locale = 'en-CA';
+
+    const options = {
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    };
+
+    //console.log(notes);
+    //console.log(notes[0].title)
+    //console.log(selectedNote);
 
     return (
-        
         <div id="notes">
             <div id='notes-overview'>
                 <div id='notes-title-and-date'>
-                    {/* Put {note.title}, {note.lastModified} here.
-                     Add functions to change value of note.title and note.lastModified */}
-                    <div id='notes-title'>THIS IS WHERE THE TITLE WILL GO</div>
-                    <div id='notes-date'>THIS IS WHERE THE DATE WILL GO</div>
+                    <div id='notes-title'><p id='p'>{getSelectedNote().title}</p></div>
+                    <div id='notes-date'>{new Date(getSelectedNote().lastModified).toLocaleDateString(locale, options)}, {new Date(getSelectedNote().lastModified).toLocaleTimeString("en-CA")}</div>
                 </div>
                 <div id='notes-overview-seperation' ></div>
                 <div id='notes-save-and-delete'>
@@ -29,14 +38,15 @@ function NotesView({ selectedNote }) {
                     <Link to={`edit`}>
                         <button className='notes-button'>Edit</button>
                     </Link>
-                    <button className='notes-button'>Delete</button>
+
+                    <button className='notes-button' onClick={() => propsFromLayout.deleteNote(selectedNote)}>Delete</button>
+
                 </div> 
             </div>
             <div id='notes-editor'>
-                THIS IS WHERE THE VIEW NOTES WILL GO
+                {getSelectedNote().body}
             </div>
         </div>
-              
     );
   };
   
