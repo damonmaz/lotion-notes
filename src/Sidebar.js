@@ -27,7 +27,7 @@ function Sidebar({ notes, addNote, selectedNote, setSelectedNote }) {
               <div className={`sidebar-note ${note.id === selectedNote && "selected"}`} onClick={ () => setSelectedNote(note.id)}> {/* This is so messed up that I am unable to change the selected note class without clicking, or it breaks everything */}
                 <div className="sidebar-note-title" dangerouslySetInnerHTML={{ __html: note.title.substr(0,15) + titleLengthChecker(note.title)}}></div>
                 <div className="sidebar-note-metadata">Last modified {new Date(note.lastModified).toLocaleDateString("en-CA")}, {new Date(note.lastModified).toLocaleTimeString("en-CA")}</div> 
-                <div className="sidebar-note-contents" dangerouslySetInnerHTML={{ __html: note.body && (`${note.body.substr(0, 10)}...`) || "..."}}></div>
+                <div className="sidebar-note-contents" dangerouslySetInnerHTML={{ __html: note.body && (`${note.body.substr(0, 25)}...`) || "..."}}></div>
                 {/* <div className="sidebar-note-contents" >{(note.body && note.body.substr(0, 100) + "...") || ("...")}</div> */}
                 {/* dangerouslySetInnerHTML={{ __html: selectedNote.body}} */}
               </div>
