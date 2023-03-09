@@ -267,8 +267,7 @@ div#main {
 .sidebar-note-title {
   color: inherit;
   font-weight: bold;
-
-  font-size: medium;
+  font-size: medium !important;
   margin-left: 0.25vh;
 
   text-decoration: none;
@@ -277,13 +276,17 @@ div#main {
 .sidebar-note-metadata {
   font-size: x-small;
   margin-left: 0.25vh;
+
+  text-decoration: none;
 }
 
 .sidebar-note-contents {
   margin-top: 5%;
   margin-left: 0.25vh;
-  
+
   font-size: medium !important;
+
+  text-decoration: none;
   
 }
 
