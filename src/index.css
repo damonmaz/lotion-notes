@@ -279,7 +279,7 @@ div#main {
 .sidebar-note-contents {
   margin-top: 5%;
 
-  font-size: x-small !important;
+  font-size: medium !important;
   
 }
 
@@ -357,7 +357,8 @@ div#main {
 
 #notes-date {
   flex: 2;
-  margin-left: 2px;
+  margin-left: 5px;
+  margin-bottom: 5px;
 
   font-size: small;
   color: gray;
@@ -401,6 +402,8 @@ div#main {
 #notes-editor {
   
   max-height: 72.75vh;
+
+  margin-left: 5px;
 
 }
 
