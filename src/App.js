@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, useParams} from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams, Navigate} from "react-router-dom";
 import NotesView from './NotesView';
 import NotesEdit from './NotesEdit';
 import Layout from './Layout';
@@ -15,10 +15,11 @@ function App() {
         <Routes>
 
           <Route element={<Layout/>} >
-            <Route path='/' element={<Default />}></Route>
-            <Route path='/:id' element={<NotesView />} ></Route>
+          <Route path='/' element={<Navigate to='/notes' />}></Route>
+            <Route path='/notes' element={<Default />}></Route>
+            <Route path='/notes/:id' element={<NotesView />} ></Route>
             {/* <Route path='/:id/view' element={<NotesView/>}></Route> */}
-            <Route path='/:id/edit' element={<NotesEdit/>}></Route>
+            <Route path='/notes/:id/edit' element={<NotesEdit/>}></Route>
           </Route> 
 
         </Routes>
